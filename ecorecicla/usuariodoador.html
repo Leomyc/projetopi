@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Dados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>EcoRecicla</h2>
+        <h3>Seja bem-vindo(a)!</h3>
+        <form id="dadosForm">
+            <label for="apelido">Apelido:</label>
+            <input type="text" id="apelido" required><br>
+
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" required><br>
+
+            <button type="submit">Salvar Dados</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("dadosForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const apelido = document.getElementById("apelido").value;
+            const endereco = document.getElementById("endereco").value;
+
+            const usuarioDados = {
+                apelido: apelido,
+                endereco: endereco
+            };
+
+            localStorage.setItem("usuarioDados", JSON.stringify(usuarioDados));
+
+            alert("Dados salvos com sucesso!");
+            location.href = "doar.html";
+        });
+    </script>
+</body>
+</html>

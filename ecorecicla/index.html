@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRecicla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .eventos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .evento {
+            background-color: white;
+            padding: 20px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .evento h3 {
+            color: #28a745;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao EcoRecicla</h1>
+        <p>Recicle e ganhe descontos!</p>
+    </header>
+
+    <div class="container">
+        <div class="eventos">
+            <div class="evento">
+                <h3>Evento 1</h3>
+                <p>Local: Praça Central</p>
+                <p>Data: 25/12/2024</p>
+                <button class="button">Ver Detalhes</button>
+            </div>
+            <div class="evento">
+                <h3>Evento 2</h3>
+                <p>Local: Parque Municipal</p>
+                <p>Data: 26/12/2024</p>
+                <button class="button">Ver Detalhes</button>
+            </div>
+        </div>
+
+        <button class="button" onclick="location.href='login.html'">Login</button>
+        <button class="button" onclick="location.href='cadastro.html'">Cadastrar</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - EcoRecicla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+        .main-content {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .empresa-info {
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .empresa-info h3 {
+            color: #28a745;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EcoRecicla</h1>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>Bem-vindo à Página da Sua Empresa</h2>
+            <p>Faça parte do movimento EcoRecicla!</p>
+            
+            <div class="empresa-info">
+                <h3>Informações da Empresa:</h3>
+                <p><strong>Nome da Empresa:</strong> <span id="nomeEmpresa"></span></p>
+                <p><strong>Endereço da Empresa:</strong> <span id="enderecoEmpresa"></span></p>
+            </div>
+        </div>
+        <div class="empresa-info">
+            <button class="button" onclick="location.href='login.html'">Sair</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const empresaDados = JSON.parse(localStorage.getItem("empresaDados"));
+            if (empresaDados) {
+                document.getElementById("nomeEmpresa").textContent = empresaDados.nomeEmpresa;
+                document.getElementById("enderecoEmpresa").textContent = empresaDados.enderecoEmpresa;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EcoRecicla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        input, select {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Login no EcoRecicla</h1>
+    </header>
+
+    <div class="container">
+        <form id="loginForm">
+            <label for="userType">Tipo de Usuário:</label>
+            <select id="userType" name="userType" required>
+                <option value="empresa">Empresa</option>
+                <option value="doador">Doador</option>
+            </select><br><br>
+
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <button class="button" type="submit">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const userType = document.getElementById("userType").value;
+
+            if (userType === "doador") {
+                window.location.href = "usuariodoador.html";
+            } else if (userType === "empresa") {
+                window.location.href = "empresa.html";
+            }
+        });
+    </script>
+</body>
+</html>

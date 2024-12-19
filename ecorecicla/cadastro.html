@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .tipo-usuario {
+            display: flex;
+            justify-content: space-between;
+        }
+        .tipo-usuario label {
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            margin-top: 15px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>EcoRecicla</h2>
+        <form id="cadastroForm">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" required><br>
+
+            <div class="tipo-usuario">
+                <label>
+                    <input type="radio" name="tipo" value="doador" required> Doador
+                </label>
+                <label>
+                    <input type="radio" name="tipo" value="empresa"> Empresa
+                </label>
+            </div><br>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <button class="login-button" onclick="location.href='login.html'">Já tem uma conta? Faça Login</button>
+    </div>
+
+    <script>
+        document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("senha").value;
+            const tipo = document.querySelector('input[name="tipo"]:checked').value;
+
+            const usuario = {
+                nome: nome,
+                email: email,
+                senha: senha,
+                tipo: tipo
+            };
+
+            localStorage.setItem("usuario", JSON.stringify(usuario));
+
+            alert("Cadastro realizado com sucesso!");
+
+            if (tipo === "empresa") {
+                location.href = "usuarioempresa.html";
+            } else if (tipo === "doador") {
+                location.href = "usuariodoador.html";
+            }
+        });
+    </script>
+</body>
+</html>

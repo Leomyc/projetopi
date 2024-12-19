@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Dados da Empresa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>EcoRecicla</h2>
+        <h3>Seja bem-vindo(a)!</h3>
+        <form id="empresaForm">
+            <label for="nomeEmpresa">Nome da Empresa:</label>
+            <input type="text" id="nomeEmpresa" required><br>
+
+            <label for="enderecoEmpresa">Endereço da Empresa:</label>
+            <input type="text" id="enderecoEmpresa" required><br>
+
+            <button type="submit">Salvar Dados</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("empresaForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nomeEmpresa = document.getElementById("nomeEmpresa").value;
+            const enderecoEmpresa = document.getElementById("enderecoEmpresa").value;
+
+            const empresaDados = {
+                nomeEmpresa: nomeEmpresa,
+                enderecoEmpresa: enderecoEmpresa
+            };
+
+            localStorage.setItem("empresaDados", JSON.stringify(empresaDados));
+
+            alert("Dados da empresa salvos com sucesso!");
+            location.href = "empresa.html";
+        });
+    </script>
+</body>
+</html>

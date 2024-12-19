@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - EcoRecicla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+        .main-content {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .pontos-coletas {
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .pontos-coletas h3 {
+            color: #28a745;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        .ponto-coleta-item {
+            background-color: #e9f7e9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .user-info {
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>EcoRecicla</h1>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>Bem-vindo ao EcoRecicla</h2>
+            <p>Recicle e ganhe descontos em nossos parceiros!</p>
+            
+            <div class="user-info">
+                <h3>Seus Dados:</h3>
+                <p><strong>Apelido:</strong> <span id="apelidoUsuario"></span></p>
+                <p><strong>Endereço:</strong> <span id="enderecoUsuario"></span></p>
+            </div>
+        </div>
+
+        <div class="pontos-coletas">
+            <h3>Pontos de Coleta</h3>
+            <div class="ponto-coleta-item">
+                <p><strong>Local:</strong> Praça Central</p>
+                <p><strong>Endereço:</strong> Rua da Praça, 100</p>
+            </div>
+            <div class="ponto-coleta-item">
+                <p><strong>Local:</strong> Parque Municipal</p>
+                <p><strong>Endereço:</strong> Avenida Verde, 200</p>
+            </div>
+            <button class="button" onclick="location.href='login.html'">Sair</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const usuarioDados = JSON.parse(localStorage.getItem("usuarioDados"));
+            if (usuarioDados) {
+                document.getElementById("apelidoUsuario").textContent = usuarioDados.apelido;
+                document.getElementById("enderecoUsuario").textContent = usuarioDados.endereco;
+            }
+        }
+    </script>
+</body>
+</html>
